@@ -27,7 +27,7 @@ server.listen(4001, '0.0.0.0')
 const express = require('express')
 
 const app = express()
-app.use('/', express.static(__dirname))
+app.use('/', express.static('.'))
 app.listen(4002, '0.0.0.0', () => console.log("serving..."));
 ```
 
