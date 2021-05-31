@@ -4,11 +4,33 @@ Repro of express failing to serve assets > 65KB on `192.168.*.*` host
 # Set Up
 `npm i && chmod a+x ./serve*.js`
 
+
 ## Serving
 * `npm run http` will serve a http server on port 4001, so http://localhost:4001/assets/lenna60kb.jpg should be accessible
 * `npm run express` will start a express server on port 4002, so http://localhost:4002/assets/lenna60kb.jpg should be accessible
 
-## Repro
+# Content
+Http Server:
+```js
+var http = require('http')
+var serveStatic = require('serve-static')
+
+var serveFn = serveStatic('.')
+var server = http.createServer((req, res) => serveFn(req, res, () => {}));
+
+server.listen(4001, '0.0.0.0')
+```
+
+Express Server
+```js
+const express = require('express')
+
+const app = express()
+app.use('/', express.static(__dirname))
+app.listen(4002, '0.0.0.0', () => console.log("serving..."));
+```
+
+# Repro
 Find your Local Network IP address (usually starts with `192.168.*.*`, on Mac can be obtained from `ifconfig | grep "inet 192"`). Let's assume it is `192.168.1.242`
 
 Then, check the following links.
