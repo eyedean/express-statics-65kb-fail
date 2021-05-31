@@ -79,4 +79,68 @@ Z�)i)h
 # Other Notes
 * It works fine on http://127.0.0.1 and http://localhost.
 * It works fine when I disable `X-Powered-By` header via `app.disable('x-powered-by');`
+* Check out `http://192.168.1.242:4002/assets/a.txt` to see the content before the headers is actually the content from the actual file, not an error message or something:
+```
+152
+0008153
+0008154
+0008155
+0008156
+0008157
+0008158
+0008159
+0008160
+0008161
+0008162
+0008163
+0008164
+0008165
+0008166
+0008167
+0008168
+0008169
+0008170
+0008171
+0008172
+0008173
+0008174
+0008175
+0008176
+0008177
+0008178
+0008179
+0008180
+0008181
+0008182
+0008183
+0008184
+0008185
+0008186
+0008187
+0008188
+0008189
+0008190
+0008191
+0008192
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Mon, 31 May 2021 22:55:43 GMT
+ETag: W/"7a11ff-179c4a3db3b"
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 7999999
+Date: Mon, 31 May 2021 22:55:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 
+0000001
+0000002
+0000003
+0000004
+0000005
+0000006
+0000007
+0000008
+0000009
+```
