@@ -11,7 +11,7 @@ Repro of express failing to serve assets > 65KB on `192.168.*.*` host
 
 # Content
 The servers created in this repo are minimal.  Here is their content.
-## `http` Server
+## Minimal `http` Server on `:4001`
 ```js
 var http = require('http')
 var serveStatic = require('serve-static')
@@ -22,7 +22,7 @@ var server = http.createServer((req, res) => serveFn(req, res, () => {}));
 server.listen(4001, '0.0.0.0')
 ```
 
-## `express` Server
+## Minimal `express` Server on `:4002`
 ```js
 const express = require('express')
 
