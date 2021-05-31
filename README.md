@@ -10,7 +10,8 @@ Repro of express failing to serve assets > 65KB on `192.168.*.*` host
 * `npm run express` will start a express server on port 4002, so http://localhost:4002/assets/lenna60kb.jpg should be accessible
 
 # Content
-Http Server:
+The servers created in this repo are minimal.  Here is their content.
+## `http` Server
 ```js
 var http = require('http')
 var serveStatic = require('serve-static')
@@ -21,7 +22,7 @@ var server = http.createServer((req, res) => serveFn(req, res, () => {}));
 server.listen(4001, '0.0.0.0')
 ```
 
-Express Server
+## `express` Server
 ```js
 const express = require('express')
 
@@ -41,6 +42,10 @@ Then, check the following links.
 
 Case #4, on Chrome gives `ERR_INVALID_HTTP_RESPONSE` Error. on FireFox and via `cURL`, you can get the content and you will see the headers are somewhere in the middle of there:
 
+# Screenshot
+<img width="1128" alt="image" src="https://user-images.githubusercontent.com/5694695/120246627-a0115100-c225-11eb-9c75-149025da5fbf.png">
+
+## Content in FireFox
 ```
 KH)i1F)iÀPØÒ2-$kÅL¢¡²ÒVžO›-�ZR)E-!E�ê(¢ÀRÒ
 Z�(¢Š�(¢Š�ZZJZ�(¢Š�)i)h�¥”¢€
@@ -71,4 +76,7 @@ Z�)i)h
 %)¤ ¢Š()E%( ¢Š(i
 ```
 
+# Other Notes
+* It works fine on http://127.0.0.1 and http://localhost.
+* It works fine when I disable `X-Powered-By` header via `app.disable('x-powered-by');`
 
