@@ -1,0 +1,25 @@
+{
+  "name": "express-statics-65kb-fail",
+  "version": "1.0.0",
+  "description": "Repro of express failing to serve assets > 65KB on 192.168.*.* host",
+  "main": "serveExpress4002.js",
+  "scripts": {
+    "express": "./serveExpress4002.js",
+    "http": "./serveHttp4001.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyedean/express-statics-65kb-fail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eyedean/express-statics-65kb-fail/issues"
+  },
+  "homepage": "https://github.com/eyedean/express-statics-65kb-fail#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "serve-static": "^1.14.1"
+  }
+}
