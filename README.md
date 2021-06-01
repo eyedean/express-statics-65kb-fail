@@ -147,4 +147,4 @@ Keep-Alive: timeout=5
 ```
 
 ### Findings 6/1/2021
-* The bug is also happening on httpHeader, which is using `require('http')`, `require('serve-static')`, and also `res.setHeader("X-POWERED-BY", "me-testing")`.  That eliminates `express` as the main culprit and puts the focus on how the `stream` is sending the data back on `serve-static`.
+* The bug is also happening on httpHeader, which is using `require('http')`, `require('serve-static')`, and also `res.setHeader("X-POWERED-BY", "me-testing")`.  That eliminates `express` as the main culprit and puts the focus on how the `stream` is sending the data back in `serve-static`.
