@@ -8,6 +8,7 @@ Repro of express failing to serve assets > 65KB on `192.168.*.*` host
 ## Serving
 * `npm run http` will serve a http server on port 4001, so http://localhost:4001/assets/lenna60kb.jpg should be accessible
 * `npm run express` will start a express server on port 4002, so http://localhost:4002/assets/lenna60kb.jpg should be accessible
+* `npm run httpHeader` will start a http server with `X-POWERED-By` header on port 4003, so http://localhost:4002/ should be accessible and serve `a.txt`.
 
 # Content
 The servers created in this repo are minimal.  Here is their content.
@@ -144,3 +145,6 @@ Keep-Alive: timeout=5
 0000008
 0000009
 ```
+
+### Findings 6/1/2021
+* The bug is also happening on httpHeader, which is using `require('http')`, `require('serve-static')`, and also `res.setHeader("X-POWERED-BY", "me-testing")`.  That eliminates `express` as the main culprit and puts the focus on how the `stream` is sending the data back on `serve-static`.

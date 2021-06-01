@@ -5,7 +5,8 @@
   "main": "serveExpress4002.js",
   "scripts": {
     "express": "./serveExpress4002.js",
-    "http": "./serveHttp4001.js"
+    "http": "./serveHttp4001.js",
+    "httpHeader": "./serveHttpWithHeader4003.js"
   },
   "repository": {
     "type": "git",
